@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
     //STING
     private String caminho_img = "";
     private final static String QUEUE_NAME = "pdi_cnn_respota"; //"hello"
-    private String IP;
+    private String IP = "192.168.0.8";
 
 
     //METHODS
@@ -124,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
                             EditText ed = view.findViewById(R.id.edt_ip);
                             String ip = ed.getText().toString();
                             mensagem_toask("Setado com sucesso! = "+ip);
+                            IP = ip;
 
                         }catch (Exception erro){
                             Log.v("Error -> ", erro.toString());
@@ -155,15 +156,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void setIPServer(){
-
-        try{
-            IP = "";
-        }catch (Exception erro){
-            Log.v("setando Ip", erro.toString());
-        }
-
-    }
 
     private void servidor(){
 
@@ -204,8 +196,6 @@ public class MainActivity extends AppCompatActivity {
         //----------------------------------------------
 
         init();
-
-
 
         //dados do spinner
         final ArrayList<String> pal = new ArrayList<>();
@@ -270,6 +260,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    // abrir a galeria
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -332,7 +323,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    //ciar a imagem
+    // criar a imagem
     public void criar_arquivo(String path_name_file, byte[] conteudo_binario) {
 
         try {
@@ -354,11 +345,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // ler arquivo
     public File ler_arquivo(String caminho) {
         File _arquivo = new File(caminho);
         return _arquivo;
     }
 
+    // conveter arquivo para array binario
     public byte[] converte_bytes(File arquivo) {
 
         int tamanho = (int) arquivo.length();
@@ -375,6 +368,7 @@ public class MainActivity extends AppCompatActivity {
         return sendBuf;
     }
 
+    // enviar imagem ao servidor
     private void enviar() {
 
         final byte[] imagem_bytes = converte_bytes(ler_arquivo(caminho_img));
@@ -389,11 +383,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // demostrar mensagem com toask
     private void mensagem_toask(String mensagem){
         Toast.makeText(getApplicationContext(), mensagem, Toast.LENGTH_LONG).show();
     }
 
-
+    // velho quebra galho, foda-se LOG....
     private void print(String m){
         Log.v("------->", m);
     }
