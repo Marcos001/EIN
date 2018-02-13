@@ -378,7 +378,7 @@ public class MainActivity extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        new Producer(imagem_bytes);
+        new Producer(IP, imagem_bytes);
             Log.v("---> ","imagem enviada com sucesso!");
 
     }

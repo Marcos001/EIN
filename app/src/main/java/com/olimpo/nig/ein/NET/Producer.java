@@ -23,9 +23,9 @@ public class Producer {
     static final String ENCODING = "UTF-8";
 
 
-    public Producer(byte[] fileData){
+    public Producer(String IP, byte[] fileData){
 
-        String HOST = System.getProperty("amqp.host", "192.168.0.8");
+        String HOST = System.getProperty("amqp.host", IP);
 
         try{
 
