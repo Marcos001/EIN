@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">EIN</string>
+    <string name="app_bt1_sel">Selecionar</string>
+    <string name="app_bt2_send">Enviar</string>
+    <string name="app_row_1">Ip do Servidor</string>
+
+    <string name="app_button_ok"> Ok </string>
+    <string name="app_button_cancel">Cancelar</string>
+
+</resources>
